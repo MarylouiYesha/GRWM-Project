@@ -1,7 +1,8 @@
+from tkinter import*
 import tkinter as tk
-import fnmatch
+from tkinter import ttk, filedialog
+from pygame import mixer 
 import os
-from pygame import mixer
 
 canvas= tk.Tk()
 canvas.title("Music Player")
