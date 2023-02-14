@@ -6,9 +6,12 @@ import os
 
 canvas= tk.Tk()
 canvas.title("Music Player")
-canvas.geometry("600x800")
-canvas.config(bg='black')
+canvas.geometry("920x670+290+85")
+canvas.configure(bg="#0f1a2b")
+canvas.resizable(False,False)
 
-rootpath = ""
+mixer.init()
+
+
 
 canvas.mainloop()
