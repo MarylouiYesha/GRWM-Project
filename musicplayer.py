@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 import pygame.mixer as mixer 
 import os
+import tkinter as tk
 
 mixer.init()
 
@@ -44,6 +45,12 @@ song_frame.place(x=0, y=0)
 
 button_frame = LabelFrame(root, text='Control Buttons', bg='Turquoise', width=400, height=120)
 button_frame.place(y=80)
+
+prev_img = tk.PhotoImage(file ="back.jpg")
+play_img = tk.PhotoImage(file ="play.jpg")
+pause_img = tk.PhotoImage(file ="pause.jpg")
+next_img = tk.PhotoImage(file ="next.jpg")
+
 
 listbox_frame = LabelFrame(root, text='Playlist', bg='RoyalBlue')
 listbox_frame.place(x=400, y=0, height=200, width=300)
