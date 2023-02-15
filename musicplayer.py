@@ -17,6 +17,19 @@ def stop_song(status: StringVar):
     mixer.music.stop()
     status.set("Song STOPPED")
 
+def load(listbox):
+    os.chdir(filedialog.askdirectory(title='Open a songs directory'))
+
+    tracks = os.listdir()
+
+    for track in tracks:
+        listbox.insert(END, track)
+
+
+def pause_song(status: StringVar):
+    mixer.music.pause()
+    status.set("Song PAUSED")
+
 def resume_song(status: StringVar):
     mixer.music.unpause()
     status.set("Song RESUMED")
@@ -60,6 +73,25 @@ Label(song_frame, text='CURRENTLY PLAYING:', bg='LightBlue', font=('Times', 10, 
 song_lbl = Label(song_frame, textvariable=current_song, bg='Goldenrod', font=("Times", 12), width=25)
 song_lbl.place(x=150, y=20)
 
+pause_btn = Button(button_frame, text='Pause', bg='Aqua', font=("Georgia", 13), width=7,
+                    command=lambda: pause_song(song_status))
+pause_btn.place(x=15, y=10)
+
+stop_btn = Button(button_frame, text='Stop', bg='Aqua', font=("Georgia", 13), width=7,
+                  command=lambda: stop_song(song_status))
+stop_btn.place(x=105, y=10)
+
+play_btn = Button(button_frame, text='Play', bg='Aqua', font=("Georgia", 13), width=7,
+                  command=lambda: play_song(current_song, playlist, song_status))
+play_btn.place(x=195, y=10)
+
+resume_btn = Button(button_frame, text='Resume', bg='Aqua', font=("Georgia", 13), width=7,
+                    command=lambda: resume_song(song_status))
+resume_btn.place(x=285, y=10)
+
+load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia", 13), width=35,
+                  command=lambda: load(playlist))
+load_btn.place(x=10, y=55)
 
 canvas.update()
 canvas.mainloop()
