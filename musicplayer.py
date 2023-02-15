@@ -37,6 +37,10 @@ song_frame.place(x=0, y=0)
 play_button=PhotoImage(file="play.jpg")
 Button(canvas, image=play_button, bg="#0f1").place(x=100,y=400)
 
+button_frame = LabelFrame(canvas, text='Control Buttons', bg='Turquoise', width=400, height=120)
+button_frame.place(y=80)
 
+listbox_frame = LabelFrame(canvas, text='Playlist', bg='RoyalBlue')
+listbox_frame.place(x=400, y=0, height=200, width=300)
 
 canvas.mainloop()
