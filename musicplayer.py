@@ -43,4 +43,9 @@ button_frame.place(y=80)
 listbox_frame = LabelFrame(canvas, text='Playlist', bg='RoyalBlue')
 listbox_frame.place(x=400, y=0, height=200, width=300)
 
+current_song = StringVar(canvas, value='<Not selected>')
+
+
+
+
 canvas.mainloop()
