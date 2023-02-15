@@ -57,6 +57,8 @@ scroll_bar.config(command=playlist.yview)
 
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
+song_lbl = Label(song_frame, textvariable=current_song, bg='Goldenrod', font=("Times", 12), width=25)
+song_lbl.place(x=150, y=20)
 
 
 canvas.mainloop()
