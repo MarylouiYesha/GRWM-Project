@@ -29,6 +29,8 @@ canvas.geometry('700x220')
 canvas.configure(bg="#0f1a2b")
 canvas.resizable(0.0)
 
+song_frame = LabelFrame(canvas, text='Current Song', bg='LightBlue', width=400, height=80)
+song_frame.place(x=0, y=0)
 
 
 #button
