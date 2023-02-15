@@ -37,7 +37,7 @@ def resume_song(status: StringVar):
 root= Tk()
 root.geometry('700x220')
 root.title('Music Player')
-root.resizable(0.0)
+root.resizable(0, 0)
 
 song_frame = LabelFrame(root, text='Current Song', bg='LightBlue', width=400, height=80)
 song_frame.place(x=0, y=0)
