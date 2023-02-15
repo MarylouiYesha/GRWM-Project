@@ -34,22 +34,23 @@ def resume_song(status: StringVar):
     mixer.music.unpause()
     status.set("Song RESUMED")
 
-canvas= Tk()
-canvas.title("Music Player")
-canvas.geometry('700x220')
-canvas.resizable(0.0)
+root= Tk()
+root.geometry('700x220')
+root.title('Music Player')
+root.resizable(0.0)
 
-song_frame = LabelFrame(canvas, text='Current Song', bg='LightBlue', width=400, height=80)
+song_frame = LabelFrame(root, text='Current Song', bg='LightBlue', width=400, height=80)
 song_frame.place(x=0, y=0)
 
-button_frame = LabelFrame(canvas, text='Control Buttons', bg='Turquoise', width=400, height=120)
+button_frame = LabelFrame(root, text='Control Buttons', bg='Turquoise', width=400, height=120)
 button_frame.place(y=80)
 
-listbox_frame = LabelFrame(canvas, text='Playlist', bg='RoyalBlue')
+listbox_frame = LabelFrame(root, text='Playlist', bg='RoyalBlue')
 listbox_frame.place(x=400, y=0, height=200, width=300)
 
-current_song = StringVar(canvas, value='<Not selected>')
-song_status = StringVar(canvas, value='<Not Available>')
+current_song = StringVar(root, value='<Not selected>')
+
+song_status = StringVar(root, value='<Not Available>')
 
 playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Gold')
 
@@ -87,8 +88,8 @@ load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia
                   command=lambda: load(playlist))
 load_btn.place(x=10, y=55)
 
-Label(canvas, textvariable=song_status, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
+Label(root, textvariable=song_status, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
 
-canvas.update()
-canvas.mainloop()
+root.update()
+root.mainloop()
 
