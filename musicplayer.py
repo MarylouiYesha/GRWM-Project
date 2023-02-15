@@ -23,11 +23,11 @@ def resume_song(status: StringVar):
     mixer.music.unpause()
     status.set("Song RESUMED")
 
-canvas= tk.Tk()
+canvas= Tk()
 canvas.title("Music Player")
-canvas.geometry("920x670+290+85")
+canvas.geometry('700x220')
 canvas.configure(bg="#0f1a2b")
-canvas.resizable(False,False)
+canvas.resizable(0.0)
 
 
 
