@@ -15,6 +15,10 @@ def play_song(song_name: StringVar, songs_list: Listbox, status: StringVar):
 
     status.set("Song PLAYING")
 
+def stop_song(status: StringVar):
+    mixer.music.stop()
+    status.set("Song STOPPED")
+
 canvas= tk.Tk()
 canvas.title("Music Player")
 canvas.geometry("920x670+290+85")
