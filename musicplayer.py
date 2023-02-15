@@ -1,6 +1,6 @@
-from tkinter import*
+from tkinter import *
 from tkinter import filedialog
-from pygame.mixer import mixer 
+import pygame.mixer as mixer 
 import os
 
 mixer.init()
@@ -55,8 +55,12 @@ scroll_bar.config(command=playlist.yview)
 
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
+Label(song_frame, text='CURRENTLY PLAYING:', bg='LightBlue', font=('Times', 10, 'bold')).place(x=5, y=20)
+
 song_lbl = Label(song_frame, textvariable=current_song, bg='Goldenrod', font=("Times", 12), width=25)
 song_lbl.place(x=150, y=20)
 
 
+canvas.update()
 canvas.mainloop()
+
