@@ -46,6 +46,17 @@ listbox_frame.place(x=400, y=0, height=200, width=300)
 current_song = StringVar(canvas, value='<Not selected>')
 song_status = StringVar(canvas, value='<Not Available>')
 
+playlist = Listbox(listbox_frame, font=('Helvetica', 11), selectbackground='Gold')
+
+scroll_bar = Scrollbar(listbox_frame, orient=VERTICAL)
+scroll_bar.pack(side=RIGHT, fill=BOTH)
+
+playlist.config(yscrollcommand=scroll_bar.set)
+
+scroll_bar.config(command=playlist.yview)
+
+playlist.pack(fill=BOTH, padx=5, pady=5)
+
 
 
 canvas.mainloop()
