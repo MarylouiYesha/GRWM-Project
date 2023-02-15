@@ -93,6 +93,8 @@ load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia
                   command=lambda: load(playlist))
 load_btn.place(x=10, y=55)
 
+Label(canvas, textvariable=song_status, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
+
 canvas.update()
 canvas.mainloop()
 
