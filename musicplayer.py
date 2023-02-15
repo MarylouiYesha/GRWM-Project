@@ -44,7 +44,7 @@ listbox_frame = LabelFrame(canvas, text='Playlist', bg='RoyalBlue')
 listbox_frame.place(x=400, y=0, height=200, width=300)
 
 current_song = StringVar(canvas, value='<Not selected>')
-
+song_status = StringVar(canvas, value='<Not Available>')
 
 
 
