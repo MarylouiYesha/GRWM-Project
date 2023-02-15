@@ -1,8 +1,6 @@
 from tkinter import*
-import tkinter as tk
-import fnmatch
-from tkinter import ttk, filedialog
-from pygame import mixer 
+from tkinter import filedialog
+from pygame.mixer import mixer 
 import os
 
 mixer.init()
