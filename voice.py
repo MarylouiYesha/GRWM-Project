@@ -13,7 +13,7 @@ def takeCommand():
     listener=sr.Recognizer()
     try:
         with sr.Microphone() as source:
-            print("Listening")
+            print("WORK PLEASE!")
             voice=listener.listen(source)
             command=listener.recognize_google(voice)
             song= command.replace('play','')

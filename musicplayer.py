@@ -3,6 +3,9 @@ from tkinter import filedialog
 import pygame.mixer as mixer 
 import os
 import tkinter as tk 
+import speech_recognition as sr
+import pyttsx3
+import pywhatkit
 
 mixer.init()
 
@@ -34,6 +37,30 @@ def pause_song(status: StringVar):
 def resume_song(status: StringVar):
     mixer.music.unpause()
     status.set("Song RESUMED")
+
+def takeCommand():
+    listener=sr.Recognizer()
+    try:
+        with sr.Microphone() as source:
+            print("WORK PLEASE!")
+            voice=listener.listen(source)
+            command=listener.recognize_google(voice)
+            song= command.replace('play','')
+
+            talk(song)
+            pywhatkit.playonyt(song)
+    except:
+        pass
+
+def talk(command):
+    engine=pyttsx3.init()
+    voice=engine.getProperty('voices')
+    engine.setProperty('voice',voice[1].id)
+    engine.say("Playing "+ command)
+    engine.runAndWait()
+
+
+
 
 root= Tk()
 root.geometry('700x220')
@@ -92,8 +119,13 @@ load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia
                   command=lambda: load(playlist))
 load_btn.place(x=10, y=55)
 
+search_btn = Button(button_frame, text='search', bg='Aqua', font=("Georgia", 13), width=7,
+                  command=lambda: talk(COMMAND))
+search_btn.place(x=300, y=10)
+
 Label(root, textvariable=song_status, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
 
 root.update()
 root.mainloop()
+takeCommand()
 
