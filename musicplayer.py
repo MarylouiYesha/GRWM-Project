@@ -40,16 +40,13 @@ root.geometry('700x220')
 root.title('Music Player')
 root.resizable(0, 0)
 
+pause_img = tk.PhotoImage(file ='pause.png')
+
 song_frame = LabelFrame(root, text='Current Song', bg='LightBlue', width=400, height=80)
 song_frame.place(x=0, y=0)
 
 button_frame = LabelFrame(root, text='Control Buttons', bg='Turquoise', width=400, height=120)
 button_frame.place(y=80)
-
-prev_img = PhotoImage(file ="back.jpg")
-play_img = PhotoImage(file ="play.jpg")
-pause_img = PhotoImage(file ="pause.jpg")
-next_img = PhotoImage(file ="next.jpg")
 
 
 listbox_frame = LabelFrame(root, text='Playlist', bg='RoyalBlue')
