@@ -66,13 +66,18 @@ root.resizable(0, 0)
 
 labelbg=PhotoImage(file="labelbg.png")
 pause_img = tk.PhotoImage(file ='pause.png')
+play_img = tk.PhotoImage(file="play.png")
+resume_img= tk.PhotoImage(file="resume.png")
+stop_img= tk.PhotoImage(file="stop.png")
+search_img= tk.PhotoImage(file="search.png")
+control=PhotoImage(file= "gray.png")
 
 
 song_frame = Label(root, image=labelbg, width=700, height=250)
 song_frame.place(x=0, y=0)
 
-button_frame = LabelFrame(root,bg='Turquoise', width=950, height=100)
-button_frame.place(y=400)
+button_frame = Label(root, image=control, width=950, height=100)
+button_frame.place(y=380)
 
 
 listbox_frame = LabelFrame(root, text='Playlist', bg='RoyalBlue')
@@ -98,27 +103,27 @@ Label(song_frame, text='C U R R E N T L Y    P L A Y I N G:', font=('Courier', 1
 song_lbl = Label(song_frame, textvariable=current_song, bg='White', font=("Courier", 9), width=30, height=1)
 song_lbl.place(x=180, y=200)
 
-pause_btn = Button(button_frame, image= pause_img,
+pause_btn = Button(button_frame, image= pause_img, height=30, width=30,
                     command=lambda: pause_song(song_status))
 pause_btn.place(x=15, y=10)
 
-stop_btn = Button(button_frame, text='Stop', bg='Aqua', font=("Georgia", 13), width=7,
+stop_btn = Button(button_frame, image= stop_img, height= 30, width=30,
                   command=lambda: stop_song(song_status))
 stop_btn.place(x=105, y=10)
 
-play_btn = Button(button_frame, text='Play', bg='Aqua', font=("Georgia", 13), width=7,
+play_btn = Button(button_frame, image= play_img, height=30,width=30,
                   command=lambda: play_song(current_song, playlist, song_status))
 play_btn.place(x=195, y=10)
 
-resume_btn = Button(button_frame, text='Resume', bg='Aqua', font=("Georgia", 13), width=7,
+resume_btn = Button(button_frame, image= resume_img, height=30, width=30,
                     command=lambda: resume_song(song_status))
 resume_btn.place(x=285, y=10)
 
-load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia", 13), width=35,
+load_btn = Button(button_frame, text='Load Directory', font=("Courier", 9), width=35,
                   command=lambda: load(playlist))
-load_btn.place(x=10, y=55)
+load_btn.place(x=70, y=55)
 
-search_btn = Button(button_frame, text='search', bg='Aqua', font=("Georgia", 13), width=7,
+search_btn = Button(button_frame, image= search_img, height=30, width=30,
                   command=lambda: takeCommand())
 search_btn.place(x=300, y=10)
 
