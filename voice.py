@@ -9,3 +9,18 @@ def talk(command):
     engine.say("Playing "+ command)
     engine.runAndWait()
 
+def takeCommand():
+    listener=sr.Recognizer()
+    try:
+        with sr.Microphone() as source:
+            print("Listening")
+            voice=listener.listen(source)
+            command=listener.recognize_google(voice)
+            song= command.replace('play','')
+
+            talk(song)
+            pywhatkit.playonyt(song)
+    except:
+        pass
+
+takeCommand()
