@@ -38,6 +38,13 @@ def resume_song(status: StringVar):
     mixer.music.unpause()
     status.set("Song RESUMED")
 
+def talk(command):
+    engine=pyttsx3.init()
+    voice=engine.getProperty('voices')
+    engine.setProperty('voice',voice[1].id)
+    engine.say("Playing "+ command)
+    engine.runAndWait()
+
 def takeCommand():
     listener=sr.Recognizer()
     try:
@@ -52,24 +59,15 @@ def takeCommand():
     except:
         pass
 
-def talk(command):
-    engine=pyttsx3.init()
-    voice=engine.getProperty('voices')
-    engine.setProperty('voice',voice[1].id)
-    engine.say("Playing "+ command)
-    engine.runAndWait()
-
-
-
-
 root= Tk()
-root.geometry('700x220')
+root.geometry('950x850')
 root.title('Music Player')
 root.resizable(0, 0)
 
 pause_img = tk.PhotoImage(file ='pause.png')
 
-song_frame = LabelFrame(root, text='Current Song', bg='LightBlue', width=400, height=80)
+
+song_frame = LabelFrame(root, text='Current Song', bg='White', width=400, height=80)
 song_frame.place(x=0, y=0)
 
 button_frame = LabelFrame(root, text='Control Buttons', bg='Turquoise', width=400, height=120)
@@ -120,7 +118,7 @@ load_btn = Button(button_frame, text='Load Directory', bg='Aqua', font=("Georgia
 load_btn.place(x=10, y=55)
 
 search_btn = Button(button_frame, text='search', bg='Aqua', font=("Georgia", 13), width=7,
-                  command=lambda: talk(COMMAND))
+                  command=lambda: takeCommand())
 search_btn.place(x=300, y=10)
 
 Label(root, textvariable=song_status, bg='SteelBlue', font=('Times', 9), justify=LEFT).pack(side=BOTTOM, fill=X)
