@@ -60,22 +60,23 @@ def takeCommand():
         pass
 
 root= Tk()
-root.geometry('950x850')
+root.geometry('950x500')
 root.title('Music Player')
 root.resizable(0, 0)
 
+labelbg=PhotoImage(file="labelbg.png")
 pause_img = tk.PhotoImage(file ='pause.png')
 
 
-song_frame = LabelFrame(root, text='Current Song', bg='White', width=400, height=80)
+song_frame = Label(root, image=labelbg, width=700, height=250)
 song_frame.place(x=0, y=0)
 
-button_frame = LabelFrame(root, text='Control Buttons', bg='Turquoise', width=400, height=120)
-button_frame.place(y=80)
+button_frame = LabelFrame(root,bg='Turquoise', width=950, height=100)
+button_frame.place(y=400)
 
 
 listbox_frame = LabelFrame(root, text='Playlist', bg='RoyalBlue')
-listbox_frame.place(x=400, y=0, height=200, width=300)
+listbox_frame.place(x=650, y=0, height=500, width=300)
 
 current_song = StringVar(root, value='<Not selected>')
 
@@ -92,10 +93,10 @@ scroll_bar.config(command=playlist.yview)
 
 playlist.pack(fill=BOTH, padx=5, pady=5)
 
-Label(song_frame, text='CURRENTLY PLAYING:', bg='LightBlue', font=('Times', 10, 'bold')).place(x=5, y=20)
+Label(song_frame, text='C U R R E N T L Y    P L A Y I N G:', font=('Courier', 10, 'bold'), height=1, width=65).place(x=-1, y=-2)
 
-song_lbl = Label(song_frame, textvariable=current_song, bg='Goldenrod', font=("Times", 12), width=25)
-song_lbl.place(x=150, y=20)
+song_lbl = Label(song_frame, textvariable=current_song, bg='White', font=("Courier", 9), width=30, height=1)
+song_lbl.place(x=180, y=200)
 
 pause_btn = Button(button_frame, image= pause_img,
                     command=lambda: pause_song(song_status))
